@@ -2,10 +2,10 @@
 {
     public class NumberModel
     {
-        public NumberModel(int candidateNumber)
+        public NumberModel(int maximumIntegerValue)
         {
-            CandidateNumber = candidateNumber;
+            MaximumIntegerValue = maximumIntegerValue;
         }
-        public int CandidateNumber { get; set; }
+        public int MaximumIntegerValue { get; set; }
     }
 }

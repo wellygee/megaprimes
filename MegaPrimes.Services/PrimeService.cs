@@ -1,11 +1,10 @@
 ﻿using MegaPrimes.Interfaces;
-using MegaPrimes.Models;
 
 namespace MegaPrimes.Services
 {
     public class PrimeService : IPrimeService
     {
-        public bool IsPrime(NumberModel candidateNumber)
+        public bool IsPrime(int candidateNumber)
         {
             // TODO:
 

@@ -1,22 +1,45 @@
 ﻿using MegaPrimes.Interfaces;
-using MegaPrimes.Models;
 
 namespace MegaPrimes.Services
 {
     public class MegaPrimeService : PrimeService, IMegaPrimeService
     {
-        public bool IsMegaPrime(NumberModel candidateNumber)
-        {
-            // TODO:
+        public IList<int> Primes => new List<int>();
 
-            // exec
+        public bool IsMegaPrime(int candidateNumber)
+        {
+            bool isMegaPrimeResult = false;
+
             if (!this.IsPrime(candidateNumber))
             {
-                return false;
+                return isMegaPrimeResult;
             }
 
-            // We call a number megaprime if it is prime and all its individual digits are prime.
-            throw new NotImplementedException();
+            if (IsAllDigitsPrime(candidateNumber))
+            {
+                isMegaPrimeResult = true;
+            }
+
+            return isMegaPrimeResult;
+        }
+
+        private bool IsAllDigitsPrime(int primeNumber)
+        {
+            string digits = primeNumber.ToString();
+
+            foreach (char digit in digits)
+            {
+                int parsedDigit = int.Parse(digit.ToString());
+                if (!this.IsPrime(parsedDigit))
+                {
+                    return false;
+                }
+
+                this.Primes.Add(parsedDigit);
+            }
+
+            return true;
         }
     }
 }
+

@@ -1,47 +1,35 @@
 using MegaPrimes.Interfaces;
-using MegaPrimes.Models;
 using MegaPrimes.Services;
 using NUnit.Framework;
 
 namespace MegaPrimes.Tests
 {
-    [TestFixture("PrimeService")]
+    [TestFixture]
     public class PrimeServiceIsMegaPrimeTest
     {
-        private IPrimeService _primeService;
+        private IMegaPrimeService _megaPrimeService;
 
         [SetUp]
         public void Setup()
         {
-            _primeService = new PrimeService();
+            _megaPrimeService = new MegaPrimeService();
         }
 
         [Test, Category("PrimeService > IsMegaPrime")]
-        public void IsPrime_When_Input_Is1_Should_Return_False()
-        {
-            var result = _primeService.IsPrime(new NumberModel(1));
-
-            Assert.IsFalse(result, "1 should not be prime");
-        }
-
-        [Test, Category("PrimeService > IsMegaPrime")]
-        [TestCase(1, ExpectedResult = true)]
-        [TestCase(2, ExpectedResult = true)]
-        [TestCase(-1, ExpectedResult = true)]
+        [TestCase(53, ExpectedResult = true)]
+        [TestCase(23, ExpectedResult = true)]
+        [TestCase(37, ExpectedResult = true)]
         public bool IsPrime_When_Input_Valid_Should_Return_True(int candidateNumber)
         {
-            var model = new NumberModel(candidateNumber);
-            return model.CandidateNumber % 2 == 0; // method call
+            return _megaPrimeService.IsMegaPrime(candidateNumber);
         }
 
         [Test, Category("PrimeService > IsMegaPrime")]
-        [TestCase(1, ExpectedResult = true)]
-        [TestCase(2, ExpectedResult = true)]
-        [TestCase(-1, ExpectedResult = true)]
+        [TestCase(13, ExpectedResult = true)]
+        [TestCase(31, ExpectedResult = true)]
         public bool IsPrime_When_Input_Valid_Should_Return_False(int candidateNumber)
         {
-            var model = new NumberModel(candidateNumber);
-            return model.CandidateNumber % 2 == 0; // method call
+            return _megaPrimeService.IsMegaPrime(candidateNumber);
         }
     }
 }

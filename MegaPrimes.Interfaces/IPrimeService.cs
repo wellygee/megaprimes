@@ -1,10 +1,7 @@
-﻿
-using MegaPrimes.Models;
-
-namespace MegaPrimes.Interfaces
+﻿namespace MegaPrimes.Interfaces
 {
     public interface IPrimeService
     {
-        bool IsPrime(NumberModel candidateNumber);
+        bool IsPrime(int candidateNumber);
     }
 }
