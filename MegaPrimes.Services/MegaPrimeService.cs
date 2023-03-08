@@ -4,8 +4,6 @@ namespace MegaPrimes.Services
 {
     public class MegaPrimeService : PrimeService, IMegaPrimeService
     {
-        public IList<int> Primes => new List<int>();
-
         public bool IsMegaPrime(int candidateNumber)
         {
             bool isMegaPrimeResult = false;
@@ -34,12 +32,11 @@ namespace MegaPrimes.Services
                 {
                     return false;
                 }
-
-                this.Primes.Add(parsedDigit);
             }
 
             return true;
         }
     }
 }
+
 

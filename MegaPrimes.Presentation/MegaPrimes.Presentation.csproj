@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MegaPrimes.Interfaces\MegaPrimes.Interfaces.csproj" />
+    <ProjectReference Include="..\MegaPrimes.Services\MegaPrimes.Services.csproj" />
+  </ItemGroup>
+
 </Project>

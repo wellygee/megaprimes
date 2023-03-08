@@ -1,11 +1,26 @@
 ﻿namespace MegaPrimes.Models
 {
+    /// <summary>
+    /// The candidate number model.
+    /// </summary>
     public class NumberModel
     {
-        public NumberModel(int maximumIntegerValue)
+        /// <summary>
+        /// The candidate number model.
+        /// </summary>
+        /// <param name="maximumIntegerValue">The candidate number maximum unsigned integer value.</param>
+        public NumberModel(uint maximumIntegerValue)
         {
-            MaximumIntegerValue = maximumIntegerValue;
+            MaximumIntegerValue = (int)maximumIntegerValue;
         }
-        public int MaximumIntegerValue { get; set; }
+
+        /// <summary>
+        /// The candidate number maximum integer value.
+        /// </summary>
+        public int MaximumIntegerValue
+        {
+            get;
+            private set;
+        }
     }
 }

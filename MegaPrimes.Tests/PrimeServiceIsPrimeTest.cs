@@ -15,10 +15,14 @@ namespace MegaPrimes.Tests
             _primeService = new PrimeService();
         }
 
+        // Arrange
+        // Act
+        // Assert
+
         [Test, Category("PrimeService > IsPrime")]
-        [TestCase(-1, ExpectedResult = true)]
-        [TestCase(0, ExpectedResult = true)]
-        [TestCase(1, ExpectedResult = true)]
+        [TestCase(-1, ExpectedResult = false)]
+        [TestCase(0, ExpectedResult = false)]
+        [TestCase(1, ExpectedResult = false)]
         public bool IsPrime_When_Input_Is_Less_Than1_Should_Return_False(int candidateNumber)
         {
             return _primeService.IsPrime(candidateNumber);
@@ -34,7 +38,7 @@ namespace MegaPrimes.Tests
         }
 
         [Test, Category("PrimeService > IsPrime")]
-        [TestCase(2, ExpectedResult = false)]
+        [TestCase(4, ExpectedResult = false)]
         [TestCase(6, ExpectedResult = false)]
         [TestCase(35, ExpectedResult = false)]
         public bool IsPrime_When_Input_Valid_Should_Return_False(int candidateNumber)

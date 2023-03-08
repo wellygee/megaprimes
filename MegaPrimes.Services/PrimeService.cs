@@ -6,12 +6,21 @@ namespace MegaPrimes.Services
     {
         public bool IsPrime(int candidateNumber)
         {
-            // TODO:
+            if (candidateNumber <= 1) return false;
+            if (candidateNumber == 2 || candidateNumber == 3) return true;
+            if (candidateNumber % 2 == 0) return false;
 
-            //validate
-            
-            // A prime number is an integer greater than 1 that has no positive divisors other than 1 and itself.
-            throw new NotImplementedException();
+            var candidateNumberUpperBound = (int)Math.Floor(Math.Sqrt(candidateNumber));
+
+            for (int number = 3; number <= candidateNumberUpperBound; number += 2)
+            {
+                if (candidateNumber % number == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
